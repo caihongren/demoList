@@ -1,0 +1,148 @@
+pricingList 这个是套餐
+cardInfo 这个是卡信息
+
+/** 折扣ID */
+private Long discountId;
+
+/** 运营商 */
+@Excel(name = "运营商")
+private String ispType;
+
+/** 套餐ID */
+@Excel(name = "套餐ID")
+private Long pricingId;
+
+/** 销售价 */
+@Excel(name = "销售价")
+private Double sellAmt;
+
+/** 状态 0-上架 1-下架 */
+@Excel(name = "状态 0-上架 1-下架")
+private Long status;
+
+/**套餐名称**/
+@Excel(name = "套餐名称")
+private String pricingName;
+
+/**基础套餐的flow流量**/
+private Long pricingFlow;
+
+
+
+private Long deptId;
+
+private String deptName;
+
+/** 是否同步，0同步，1不同步 */
+private Integer transferData;
+
+/** enterprise的discountId 用来查耗费的 */
+private Long enterpriseDiscountId;
+
+
+
+ /** 物联网卡接入号码 */
+ @ApiModelProperty(value = "物联网卡接入号码MSISDN",dataType = "String")
+ @Excel(name = "MSISDN")
+ private String msisdn;
+
+ /** 移动用户识别码 */
+ @ApiModelProperty(value = "移动用户识别码IMSI",dataType = "String")
+//    @Excel(name = "IMSI")
+ private String imsi;
+
+ /** 终端设备识别码 */
+ @ApiModelProperty(value = "终端设备识别码imei",dataType = "String")
+//    @Excel(name = "终端设备识别码")
+ private String imei;
+
+ /** 运营商 */
+ @Excel(name = "运营商类型")
+ @ApiModelProperty(value = "运营商类型",dataType = "String")
+ private String ispType;
+
+ /** 套餐ID */
+ @ApiModelProperty(value = "套餐ID",dataType = "Long")
+//    @Excel(name = "套餐ID")
+ private Long pricingId;
+
+ /** 折扣ID */
+//    @Excel(name = "折扣ID")
+ @ApiModelProperty(value = "折扣ID",dataType = "Long")
+ private Long discountId;
+
+ /** 计费组ID */
+//    @Excel(name = "计费组ID")
+ @ApiModelProperty(value = "折扣ID",dataType = "String")
+ private String groupId;
+
+ /** 激活时间 */
+ @JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd HH:mm:ss")
+//    @Excel(name = "激活时间", width = 30, dateFormat = "yyyy-MM-dd HH:mm:ss")
+ private Date activateTime;
+
+ /** 失效时间 */
+ @JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd HH:mm:ss")
+//    @Excel(name = "卡过期失效时间", width = 30, dateFormat = "yyyy-MM-dd HH:mm:ss")
+ private Date lossTime;
+
+ /** 流量总量 KB */
+//    @Excel(name = "流量总量(M)")
+ private Double flowTotal;
+
+ /** 流量使用量 */
+//    @Excel(name = "流量用量(M)")
+ private Double flowUsed;
+
+ /** 流量剩余量 */
+//    @Excel(name = "流量余量(M)")
+ private Double flowLeft;
+
+ /** 本月流量使用量 */
+//    @Excel(name = "本月流量使用量(M)")
+ private Double monthFlowUsed;
+
+ /** 语音总量 */
+//    @Excel(name = "语音总量")
+ private Long voiceTotal;
+
+ /** 语音使用量 */
+//    @Excel(name = "语音使用量")
+ private Long voiceUsed;
+
+ /** 本月语音使用量 */
+//    @Excel(name = "本月语音使用量")
+ private Long currentMonthVoiceUsed;
+
+ /** 短信总量 */
+//    @Excel(name = "短信总量")
+ private Long smsTotal;
+
+ /** 短信使用量 */
+//    @Excel(name = "短信使用量")
+ private Long smsUsed;
+
+ /** 本月短信使用量 */
+//    @Excel(name = "本月短信使用量")
+ private Long currentMonthMessageUsed;
+
+ /** 卡状态0：其他 1：待激活2：沉默期（库存） 3：测试期 4：正常 5：停机 6：已销号 */
+//    @Excel(name = "卡状态0：其他 1：待激活2：沉默期", readConverterExp = "库=存")
+ private Long status;
+
+
+ 包体类型 0-月包 1-季包 2-半年包 3-年包 4-加油包
+
+
+ 生效类型effectType  0-支持立即生效 1-支持次月生效 2-支持到期生效
+
+
+
+ ** 订单状态
+     *  待支付 1 父订单：已创建，未支付                         子订单：已创建，未支付
+     *  成功   2 父订单：已充值成功（包括所有子订单）              子订单：已创建：已充值成
+     *  失败   3 父订单：充值失败（只要有一笔子订单失败，则算失败）   子订单：支付成功，充值失败  （继续充值，申请退款）
+     *  已退款 4 父订单：退款（所有子订单均已退款）                子订单：退款
+     *  充值中 5 父订单：正在处理（所有子订单都在充值中）           子订单：正在做充值处理
+     *  未确认 6 父订单：处理结果一直未返回（只要有一笔子订单未确认） 子订单：在规定时间内，处理结果一直未返回 更新状态（成功、失败）
+     * */
